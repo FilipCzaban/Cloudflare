@@ -3,9 +3,8 @@
 Informační webová stránka vytvořená jako školní projekt. Stránka přehledně popisuje, co je Cloudflare, k čemu slouží a jaké služby nabízí.
 
 ## 🔗 Živá ukázka
-
-> Po nasazení na GitHub Pages bude stránka dostupná na:  
-> **[https://filipczaban.github.io/Cloudflare/](https://filipczaban.github.io/Cloudflare/)**
+  
+**[https://filipczaban.github.io/Cloudflare/](https://filipczaban.github.io/Cloudflare/)**
 
 ---
 
