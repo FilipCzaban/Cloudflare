@@ -5,7 +5,7 @@ Informační webová stránka vytvořená jako školní projekt. Stránka přehl
 ## 🔗 Živá ukázka
 
 > Po nasazení na GitHub Pages bude stránka dostupná na:  
-> `https://TVOJE_JMENO.github.io/cloudflare-page/`
+> **[https://filipczaban.github.io/Cloudflare/](https://filipczaban.github.io/Cloudflare/)**
 
 ---
 
