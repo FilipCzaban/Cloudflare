@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+<head>
+  <!-- ═══════════════════════════════════════════
+       META — Základní
+  ═══════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Co je Cloudflare? | Přehled služeb a možností</title>
+  <meta name="description" content="Zjistěte, co je Cloudflare, k čemu slouží a jaké služby nabízí — CDN, DDoS ochrana, DNS, WAF a více. Přehledný průvodce světem internetové bezpečnosti." />
+  <meta name="keywords" content="Cloudflare, CDN, DDoS ochrana, DNS, WAF, webová bezpečnost, reverse proxy, cloudflare workers" />
+  <meta name="author" content="Školní projekt" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0d1117" />
+  <link rel="canonical" href="https://TVOJE_JMENO.github.io/cloudflare-page/" />
+
+  <!-- ═══════════════════════════════════════════
+       OPEN GRAPH — Facebook, LinkedIn
+  ═══════════════════════════════════════════ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://TVOJE_JMENO.github.io/cloudflare-page/" />
+  <meta property="og:title"       content="Co je Cloudflare? | Přehled služeb a možností" />
+  <meta property="og:description" content="Přehledný průvodce Cloudflare — co to je, k čemu slouží a jaké služby nabízí. CDN, DDoS ochrana, WAF, DNS a více." />
+  <meta property="og:image"       content="https://TVOJE_JMENO.github.io/cloudflare-page/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="Co je Cloudflare - informační stránka" />
+  <meta property="og:locale"      content="cs_CZ" />
+  <meta property="og:site_name"   content="Cloudflare Průvodce" />
+
+  <!-- ═══════════════════════════════════════════
+       TWITTER / X CARDS
+  ═══════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Co je Cloudflare? | Přehled služeb" />
+  <meta name="twitter:description" content="Přehledný průvodce Cloudflare — CDN, DDoS ochrana, WAF, DNS a více." />
+  <meta name="twitter:image"       content="https://TVOJE_JMENO.github.io/cloudflare-page/og-image.png" />
+  <meta name="twitter:image:alt"   content="Co je Cloudflare - informační stránka" />
+
+
+  <!-- ═══════════════════════════════════════════
+       VÝKON — Preconnect pro rychlejší načítání
+  ═══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vlastní CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ═══════════════════════════════════════════
+       PŘÍSTUPNOST — Přeskočit na hlavní obsah
+  ═══════════════════════════════════════════ -->
+  <a class="skip-link" href="#hlavni-obsah">Přeskočit na hlavní obsah</a>
+
+  <!-- Animované pozadí (dekorativní, skryté pro čtečky) -->
+  <div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--3" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER — Sémantická navigace
+  ═══════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <!-- Logo / Brand -->
+      <a href="#" class="brand" aria-label="Cloudflare průvodce — zpět na začátek stránky">
+        <svg class="brand__icon" viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M62 32c0-7.7-6.3-14-14-14-1.3 0-2.6.2-3.8.5C42.5 12.8 36.7 8 29.8 8 21.6 8 15 14.6 15 22.8c0 .4 0 .8.1 1.2C10.5 25.3 7 29.2 7 34c0 5.5 4.5 10 10 10h43c4.4 0 8-3.6 8-8 0-2.2-.9-4.2-2.3-5.7C65.2 29.6 62 30.7 62 32z" fill="url(#brandGrad)"/>
+          <defs>
+            <linearGradient id="brandGrad" x1="7" y1="8" x2="73" y2="44" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f6821f"/>
+              <stop offset="100%" stop-color="#fbad41"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand__name">Cloudflare</span>
+      </a>
+
+
+      <!-- Primární navigace -->
+      <nav id="primary-nav" class="primary-nav" aria-label="Hlavní navigace" role="navigation">
+        <ul class="nav-list" role="list">
+          <li><a class="nav-link" href="#co-je" aria-label="Sekce: Co je Cloudflare">Co je Cloudflare</a></li>
+          <li><a class="nav-link" href="#k-cemu" aria-label="Sekce: K čemu slouží">K čemu slouží</a></li>
+          <li><a class="nav-link" href="#sluzby" aria-label="Sekce: Vybrané služby">Služby</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SEKCE
+  ═══════════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container hero-inner">
+      <div class="hero__content">
+        <div class="hero__badge" aria-label="Kategorie: Technologie a internet">
+          <span aria-hidden="true">🌐</span> Technologie &amp; Internet
+        </div>
+        <h1 class="hero__title" id="hero-heading">
+          Co je <span class="gradient-text">Cloudflare</span>?
+        </h1>
+        <p class="hero__subtitle">
+          Průvodce světem internetové bezpečnosti, výkonu a infrastruktury
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#co-je" aria-label="Začít číst: Co je Cloudflare">
+            Začít číst
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" aria-label="Navštívit oficiální web Cloudflare (otevře se v novém okně)">
+            Cloudflare.com
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Dekorativní ilustrace -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="globe-ring globe-ring--1"></div>
+        <div class="globe-ring globe-ring--2"></div>
+        <div class="globe-ring globe-ring--3"></div>
+        <svg class="globe-cloud" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M124 64c0-15.4-12.6-28-28-28-2.6 0-5.2.4-7.6 1C85 25.6 73.4 16 59.6 16 43.2 16 30 29.2 30 45.6c0 .8 0 1.6.2 2.4C21 50.6 14 58.4 14 68c0 11 9 20 20 20h86c8.8 0 16-7.2 16-16 0-4.4-1.8-8.4-4.6-11.4C129.4 59.2 124 61.4 124 64z" fill="url(#heroGrad)" opacity=".9"/>
+          <defs>
+            <linearGradient id="heroGrad" x1="14" y1="16" x2="146" y2="88" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f6821f"/>
+              <stop offset="100%" stop-color="#fbad41"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       HLAVNÍ OBSAH
+  ═══════════════════════════════════════════ -->
+  <main id="hlavni-obsah" role="main">
+
+    <!-- ─── SEKCE 1: Co je Cloudflare ─── -->
+    <section class="section" id="co-je" aria-labelledby="co-je-heading">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow" aria-hidden="true">01</span>
+          <h2 class="section__title" id="co-je-heading">Co je Cloudflare?</h2>
+          <p class="section__lead">Stručné vysvětlení technologie, která pohání miliony webů</p>
+        </header>
+
+        <div class="content-card">
+          <p>
+            <strong>Cloudflare</strong> je americká technologická společnost a zároveň globální síťová platforma, 
+            která funguje jako <em>prostředník</em> (reverse proxy) mezi uživateli internetu a webovými servery. 
+            Byla founded v roce 2009 a dnes provozuje jednu z největších sítí na světě — pokrývá více než 
+            <strong>300 měst ve 100+ zemích</strong>.
+          </p>
+          <p>
+            Veškerá komunikace procházející přes Cloudflare je filtrována, optimalizována a doručována nejbezpečnější 
+            a nejrychlejší cestou. Cloudflare tím chrání weby před kybernetickými útoky, snižuje latenci načítání 
+            a zvyšuje celkovou spolehlivost internetových služeb.
+          </p>
+          <p>
+            Dnes Cloudflare nenabízí jen ochranu webových stránek — je to plnohodnotná platforma zahrnující 
+            <strong>CDN, firewall, DNS, serverless výpočty, e-mailovou ochranu</strong> a desítky dalších nástrojů.
+          </p>
+
+          <!-- Fakta ve statistikách -->
+          <div class="stats-row" role="list" aria-label="Klíčové statistiky Cloudflare">
+            <div class="stat-item" role="listitem">
+              <span class="stat-item__value" aria-label="Více než 300 datových center">300+</span>
+              <span class="stat-item__label">Datových center</span>
+            </div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-item__value" aria-label="Přes 20 procent internetu">20 %</span>
+              <span class="stat-item__label">Webů na internetu</span>
+            </div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-item__value" aria-label="Rok založení 2009">2009</span>
+              <span class="stat-item__label">Rok založení</span>
+            </div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-item__value" aria-label="Přes 100 zemí">100+</span>
+              <span class="stat-item__label">Zemí světa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SEKCE 2: K čemu slouží ─── -->
+    <section class="section" id="k-cemu" aria-labelledby="k-cemu-heading">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow" aria-hidden="true">02</span>
+          <h2 class="section__title" id="k-cemu-heading">K čemu Cloudflare slouží?</h2>
+          <p class="section__lead">Vysvětlení vlastními slovy — co Cloudflare reálně dělá</p>
+        </header>
+
+        <div class="content-card">
+          <p>
+            Představte si Cloudflare jako <strong>inteligentního vrátného</strong> na vstupní bráně vašeho webu. 
+            Každý návštěvník, který chce navštívit váš web, musí nejprve projít přes servery Cloudflare. 
+            Cloudflare za zlomek sekundy vyhodnotí, zda se jedná o legitimního uživatele, nebo o botý útočníka, 
+            a podle toho buď propustí, nebo zablokuje požadavek.
+          </p>
+          <p>
+            Zároveň Cloudflare funguje jako <strong>globální sklad obsahu</strong> — uloží kopii vašeho webu na 
+            servery co nejblíže každému uživateli na světě. Uživatel z Tokia tak nenačítá váš web z Prahy, 
+            ale z nejbližšího Cloudflare datového centra v Asii. Výsledkem je dramaticky rychlejší načítání.
+          </p>
+
+          <div class="use-case-grid" role="list" aria-label="Způsoby využití Cloudflare">
+            <div class="use-case" role="listitem">
+              <span class="use-case__icon" aria-hidden="true">🛡️</span>
+              <div>
+                <strong>Ochrana</strong>
+                <span>Blokuje DDoS útoky a škodlivý provoz</span>
+              </div>
+            </div>
+            <div class="use-case" role="listitem">
+              <span class="use-case__icon" aria-hidden="true">⚡</span>
+              <div>
+                <strong>Rychlost</strong>
+                <span>Cache a CDN zkracují dobu načítání</span>
+              </div>
+            </div>
+            <div class="use-case" role="listitem">
+              <span class="use-case__icon" aria-hidden="true">🌍</span>
+              <div>
+                <strong>Dostupnost</strong>
+                <span>Globální síť zajišťuje 99,99% uptime</span>
+              </div>
+            </div>
+            <div class="use-case" role="listitem">
+              <span class="use-case__icon" aria-hidden="true">🔒</span>
+              <div>
+                <strong>Bezpečnost</strong>
+                <span>Automatické HTTPS a šifrování</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SEKCE 3: Vybrané služby ─── -->
+    <section class="section" id="sluzby" aria-labelledby="sluzby-heading">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow" aria-hidden="true">03</span>
+          <h2 class="section__title" id="sluzby-heading">Vybrané služby Cloudflare</h2>
+          <p class="section__lead">Přehled nejdůležitějších produktů a nástrojů</p>
+        </header>
+
+        <div class="services-grid" role="list" aria-label="Přehled služeb Cloudflare">
+
+          <article class="service-card" role="listitem" id="sluzba-ddos">
+            <div class="service-card__top">
+              <div class="service-card__icon-wrap" aria-hidden="true">🛡️</div>
+              <span class="service-card__tag tag--security">Bezpečnost</span>
+            </div>
+            <h3 class="service-card__name">DDoS Protection</h3>
+            <p class="service-card__desc">
+              Cloudflare automaticky detekuje a blokuje masivní útoky DDoS (Distributed Denial-of-Service),
+              které se snaží přetížit server obrovským množstvím falešných požadavků — web zůstane dostupný
+              i během útoku.
+            </p>
+            <div class="service-card__footer">
+              <span class="service-card__detail">Kapacita: 197 Tbps</span>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem" id="sluzba-cdn">
+            <div class="service-card__top">
+              <div class="service-card__icon-wrap" aria-hidden="true">🌐</div>
+              <span class="service-card__tag tag--performance">Výkon</span>
+            </div>
+            <h3 class="service-card__name">CDN — Content Delivery Network</h3>
+            <p class="service-card__desc">
+              Síť serverů rozmístěných po celém světě ukládá statický obsah (obrázky, CSS, JS) blíže
+              uživatelům, čímž výrazně zkracuje dobu načítání stránek a snižuje zatížení původního serveru.
+            </p>
+            <div class="service-card__footer">
+              <span class="service-card__detail">300+ PoP lokací</span>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem" id="sluzba-dns">
+            <div class="service-card__top">
+              <div class="service-card__icon-wrap" aria-hidden="true">📡</div>
+              <span class="service-card__tag tag--infra">Infrastruktura</span>
+            </div>
+            <h3 class="service-card__name">DNS Resolver — 1.1.1.1</h3>
+            <p class="service-card__desc">
+              Veřejný DNS server na adrese <strong>1.1.1.1</strong> je jedním z nejrychlejších a 
+              nejsoukromějších DNS resolverů — nezaznamenává IP adresy uživatelů a odpovědi 
+              doručuje v průměru za méně než 14 ms.
+            </p>
+            <div class="service-card__footer">
+              <span class="service-card__detail">~14 ms průměrná odezva</span>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem" id="sluzba-waf">
+            <div class="service-card__top">
+              <div class="service-card__icon-wrap" aria-hidden="true">🔥</div>
+              <span class="service-card__tag tag--security">Bezpečnost</span>
+            </div>
+            <h3 class="service-card__name">Web Application Firewall (WAF)</h3>
+            <p class="service-card__desc">
+              WAF analyzuje HTTP/S požadavky a blokuje známé hrozby jako SQL injection, 
+              Cross-Site Scripting (XSS) nebo CSRF útoky ještě před tím, než dosáhnou 
+              samotné webové aplikace.
+            </p>
+            <div class="service-card__footer">
+              <span class="service-card__detail">OWASP Top 10 pokrytí</span>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem" id="sluzba-workers">
+            <div class="service-card__top">
+              <div class="service-card__icon-wrap" aria-hidden="true">⚙️</div>
+              <span class="service-card__tag tag--dev">Vývoj</span>
+            </div>
+            <h3 class="service-card__name">Cloudflare Workers</h3>
+            <p class="service-card__desc">
+              Serverless platforma pro spouštění JavaScript, TypeScript nebo WebAssembly kódu 
+              přímo na hraničních serverech Cloudflare — bez nutnosti vlastního serveru, 
+              s latencí pod 1 ms.
+            </p>
+            <div class="service-card__footer">
+              <span class="service-card__detail">Serverless &amp; Edge Computing</span>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem" id="sluzba-pages">
+            <div class="service-card__top">
+              <div class="service-card__icon-wrap" aria-hidden="true">📄</div>
+              <span class="service-card__tag tag--hosting">Hosting</span>
+            </div>
+            <h3 class="service-card__name">Cloudflare Pages</h3>
+            <p class="service-card__desc">
+              Bezplatná služba pro hostování statických webů přímo z Git repozitáře 
+              (GitHub, GitLab) s automatickým nasazením, preview pro každý pull request 
+              a globální CDN sítí.
+            </p>
+            <div class="service-card__footer">
+              <span class="service-card__detail">Git-based deployment</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER — Sémantický, přístupný
+  ═══════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer__brand">
+        <svg class="footer__cloud" viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M62 32c0-7.7-6.3-14-14-14-1.3 0-2.6.2-3.8.5C42.5 12.8 36.7 8 29.8 8 21.6 8 15 14.6 15 22.8c0 .4 0 .8.1 1.2C10.5 25.3 7 29.2 7 34c0 5.5 4.5 10 10 10h43c4.4 0 8-3.6 8-8 0-2.2-.9-4.2-2.3-5.7C65.2 29.6 62 30.7 62 32z" fill="url(#footerGrad)" opacity=".7"/>
+          <defs>
+            <linearGradient id="footerGrad" x1="7" y1="8" x2="73" y2="44" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f6821f"/>
+              <stop offset="100%" stop-color="#fbad41"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <p class="footer__tagline">Cloudflare Průvodce</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Patičková navigace">
+        <ul role="list">
+          <li><a href="#co-je">Co je Cloudflare</a></li>
+          <li><a href="#k-cemu">K čemu slouží</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">cloudflare.com <span class="sr-only">(otevře se v novém okně)</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__meta">
+        <p>Vytvořeno jako školní projekt · 2026</p>
+        <p>
+          Zdroje: 
+          <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare.com</a>, 
+          Wikipedia, vlastní výzkum + AI asistence
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>
